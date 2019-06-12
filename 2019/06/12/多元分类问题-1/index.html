@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="听雨轩">
 <meta property="og:description" content="对于多元分类问题而言，直接使用多元逻辑回归就可以直接解决多元分类问题，同时这里的多元逻辑回归和逻辑回归不同，一般的逻辑回归只能解决二元分类问题。 多元逻辑回归的实现可以参考二元分类问题解决的思想，即从隐含变量出发，推导出各个类别的概率。 首先定义k个隐含变量模型，分别是$Y_ {i,0}^,Y_ {i,1}^,…,Y_ {i,k-1}^,$其中$Y_ {m,1}^\$表示类别1对类别m的效用，这仅">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-12T13:51:39.220Z">
+<meta property="og:updated_time" content="2019-06-12T13:57:04.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多元分类问题">
 <meta name="twitter:description" content="对于多元分类问题而言，直接使用多元逻辑回归就可以直接解决多元分类问题，同时这里的多元逻辑回归和逻辑回归不同，一般的逻辑回归只能解决二元分类问题。 多元逻辑回归的实现可以参考二元分类问题解决的思想，即从隐含变量出发，推导出各个类别的概率。 首先定义k个隐含变量模型，分别是$Y_ {i,0}^,Y_ {i,1}^,…,Y_ {i,k-1}^,$其中$Y_ {m,1}^\$表示类别1对类别m的效用，这仅">
@@ -428,7 +428,11 @@
         <p>对于多元分类问题而言，直接使用多元逻辑回归就可以直接解决多元分类问题，同时这里的多元逻辑回归和逻辑回归不同，一般的逻辑回归只能解决二元分类问题。</p>
 <p>多元逻辑回归的实现可以参考二元分类问题解决的思想，即从隐含变量出发，推导出各个类别的概率。</p>
 <p>首先定义k个隐含变量模型，分别是$Y_ {i,0}^<em>,Y_ {i,1}^</em>,…,Y_ {i,k-1}^<em>,$其中$Y_ {m,1}^\</em>$表示类别1对类别m的效用，这仅仅是对二元类别的扩展。同样，与二元类别类似，假设类别1对个体m的效用为下面公式所表示的线性模型，其线性部分即为$X_i<strong>\theta</strong>,<strong>\epsilon</strong>$为随机扰动项。</p>
-<p>$$ LnL=<strong>\sum</strong><em>i<strong>\sum</strong></em>{j}^{k-1}1_{<strong>{</strong>Y_i=j<strong>}</strong>}LnP(Y_i=j)  $$<br>$$ Y_ {i,0}^<em>=X_i<strong>\theta</strong><em>0+<strong>\epsilon</strong>_0 $$<br>$$ Y</em> {i,1}^</em>=X_i<strong>\theta</strong><em>1+<strong>\epsilon</strong>_1 $$<br>……<br>$$ Y</em> {i,k-1}^<em>=X_i*</em>\theta<strong>_{k-1}+</strong>\epsilon**_{k-1} $$</p>
+<p>
+
+</p><p>$LnL=<strong>\sum</strong><em>i<strong>\sum</strong></em>{j}^{k-1}1_{<strong>{</strong>Y_i=j<strong>}</strong>}LnP(Y_i=j) $<br>$Y_ {i,0}^<em>=X_i<strong>\theta</strong><em>0+<strong>\epsilon</strong>_0 $<br>$Y</em> {i,1}^</em>=X_i<strong>\theta</strong><em>1+<strong>\epsilon</strong>_1$<br>……<br>$Y</em> {i,k-1}^<em>=X_i*</em>\theta<strong>_{k-1}+</strong>\epsilon**_{k-1} $</p>
+<p></p>
+
 <p>在讨论逻辑回归模型的时候，假设$\epsilon$是服从逻辑分布的，可以近似地认为是服从正态分布的，因为逻辑分布和正态分布的差别比较小；但在多元逻辑分布的情况下，随机扰动项   服从标准的类型1的极端值分布（与正态分布的形状几乎一致，尾巴比正态分布厚一点），做出这种假设的目的是为了推导出比较好运算的公式，在二元分类问题上因为正态分布无法推导出比较优雅的数学公式，只能得出Probit回归，这在数学上很难处理，所以需要使用逻辑回归，这在多元逻辑回归上是同样的道理。</p>
 <p>有了k个隐含变量模型就可以定义第i个个体属于某个类的逻辑（个体属于某个类别，当且仅当这个类别对它的效用最大），也就是说，当假设   是所有   中最大值时，就认为i这个个体属于0这个类别，也就是$Y_i=0$，以此类推，可以得到公式2-2所示的$Y_i$等于各个类别的概率。</p>
 
