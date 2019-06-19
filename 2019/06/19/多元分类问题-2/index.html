@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="乾坤未定，你我皆是黑马">
-<meta property="og:type" content="website">
-<meta property="og:title" content="听雨轩">
-<meta property="og:url" content="http://zhangduancheng.xyz/archives/index.html">
+<meta name="description" content="上一篇文章（多元分类问题-1）说到了多元分类问题的直接解决方案，这里讨论 将多元分类问题降维到二元分类问题上。将多元分类问题分解成多个二元分类问题常用的 方法有两种，一种是OvR/OvA（one-vs-rest），另一种是OvO（One-vs-One）。 ###OvR/OvA假设这里有一个三元分类问题，$Y_i$可能的取值为0,1,2,对于这样的一个三元分类问题，可以将其缩小成为一个小的二元分类问">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多元分类问题-2">
+<meta property="og:url" content="http://zhangduancheng.xyz/2019/06/19/多元分类问题-2/index.html">
 <meta property="og:site_name" content="听雨轩">
-<meta property="og:description" content="乾坤未定，你我皆是黑马">
+<meta property="og:description" content="上一篇文章（多元分类问题-1）说到了多元分类问题的直接解决方案，这里讨论 将多元分类问题降维到二元分类问题上。将多元分类问题分解成多个二元分类问题常用的 方法有两种，一种是OvR/OvA（one-vs-rest），另一种是OvO（One-vs-One）。 ###OvR/OvA假设这里有一个三元分类问题，$Y_i$可能的取值为0,1,2,对于这样的一个三元分类问题，可以将其缩小成为一个小的二元分类问">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-19T02:04:44.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="听雨轩">
-<meta name="twitter:description" content="乾坤未定，你我皆是黑马">
+<meta name="twitter:title" content="多元分类问题-2">
+<meta name="twitter:description" content="上一篇文章（多元分类问题-1）说到了多元分类问题的直接解决方案，这里讨论 将多元分类问题降维到二元分类问题上。将多元分类问题分解成多个二元分类问题常用的 方法有两种，一种是OvR/OvA（one-vs-rest），另一种是OvO（One-vs-One）。 ###OvR/OvA假设这里有一个三元分类问题，$Y_i$可能的取值为0,1,2,对于这样的一个三元分类问题，可以将其缩小成为一个小的二元分类问">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://zhangduancheng.xyz/archives/">
+  <link rel="canonical" href="http://zhangduancheng.xyz/2019/06/19/多元分类问题-2/">
 
 
 
 
 
-  <title>归档 | 听雨轩</title>
+  <title>多元分类问题-2 | 听雨轩</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,177 +281,216 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangduancheng.xyzhttp:/zhangduancheng.xyz/2019/06/19/多元分类问题-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张端乘">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://psy25bjyz.bkt.clouddn.com/1549218619.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="听雨轩">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">多元分类问题-2</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-19T10:01:51+08:00">
+                2019-06-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 4 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="http:/zhangduancheng.xyz/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="http:/zhangduancheng.xyz/2019/06/19/多元分类问题-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="http:/zhangduancheng.xyz/2019/06/19/多元分类问题-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="http:/zhangduancheng.xyz/2019/06/19/多元分类问题-2/" itemprop="url">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">多元分类问题-2</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  312
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-19T10:01:51+08:00" content="2019-06-19">
-          06-19
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="http:/zhangduancheng.xyz/2019/06/12/多元分类问题-1/" itemprop="url">
-              
-                <span itemprop="name">多元分类问题-1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-12T20:00:28+08:00" content="2019-06-12">
-          06-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="http:/zhangduancheng.xyz/2019/04/24/我们一起来看复联4啦/" itemprop="url">
-              
-                <span itemprop="name">我们一起来看复联4啦</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-24T21:05:23+08:00" content="2019-04-24">
-          04-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>上一篇文章（多元分类问题-1）说到了多元分类问题的直接解决方案，这里讨论 将多元分类问题降维到二元分类问题上。<br>将多元分类问题分解成多个二元分类问题常用的 方法有两种，一种是OvR/OvA（one-vs-rest），另一种是OvO（One-vs-One）。</p>
+<p>###OvR/OvA<br>假设这里有一个三元分类问题，$Y_i$可能的取值为0,1,2,对于这样的一个三元分类问题，可以将其缩小成为一个小的二元分类问题，我们将其定义为<br>$Y_i=0$或$Y_i≠0$，我们可以认为1事件为$Y_i=0$,0事件为$Y_i≠0$，对于这样一个二元分类问题，我们可以用逻辑回归来解决，相应的我们也得到了$Y_i=0$的概率，同样我们也可以将其分解成$Y_i=1(Y_i≠1)$或$Y_i=2(Y_i≠2)$，相应的我们可以得到$P(Y_i=1)$或$P(Y_i=2)$。事实上，我们得到的概率并不是真正的概率，也即$P(Y_i=0)+P(Y_i=1)+P(Y_i=2)$不一定等于1，这是因为这个概率只是表示$Y_i$等于某个值的可能性有多大 </p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="http:/zhangduancheng.xyz/2019/03/14/亲爱的生日快乐/" itemprop="url">
-              
-                <span itemprop="name">亲爱的生日快乐</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-14T20:37:33+08:00" content="2019-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="http:/zhangduancheng.xyz/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="http:/zhangduancheng.xyz/2019/06/12/多元分类问题-1/" rel="next" title="多元分类问题-1">
+                <i class="fa fa-chevron-left"></i> 多元分类问题-1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -457,6 +498,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -731,6 +779,10 @@
   
 
   
+  <script type="text/javascript" src="http:/zhangduancheng.xyz/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="http:/zhangduancheng.xyz/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
